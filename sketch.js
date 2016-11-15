@@ -1,8 +1,8 @@
         //  Kristen Seneca ©2016 hw12
 
         var mic;
-        var amp;
         var mouth;
+        var amp;
         var cat;
         var rainbow;
         var banner;
@@ -19,22 +19,24 @@
 
         function setup() {
           createCanvas( 440, 440);
-          background( 0); // Create an audio input and start it
+          background( 0);
 
           mic = new p5. AudioIn();
-          mic.start(); // Create a new amplitude analyzer and patch into input
+          mic.start();
+
+          
           amp = new p5. Amplitude();
           amp.setInput( mic);
 
         }
 
-          function draw() { // Draw a background that fades to black
+          function draw() {
             noStroke();
             fill( 0, 20);
-            rect( 0, 0, width, height); // The getLevel() method returns values between 0 and 1, // so map() is used to convert the values to larger numbers
+            rect( 0, 0, width, height);
   image(cat,0,0,700,500)
   image(rainbow,200,150,500,400)
   image(banner,0,280,400,140)
-            scale = map(amp.getLevel(), 0, 1.0, 10, width); // Draw the circle based on the volume
+            scale = map(amp.getLevel(), 0, 1.0, 10, width);
             image(mouth,155,150,scale,scale);
           }
